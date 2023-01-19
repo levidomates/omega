@@ -1,5 +1,6 @@
 import pygame 
 from settings import * 
+from sys import exit 
 
 class Menu():
     def __init__(self):
@@ -15,13 +16,15 @@ class Menu():
         if key[pygame.K_SPACE]:
             if self.count == 1:
                 self.gameOn = True 
+            if self.count == 3:
+                exit()
 
-        if key[pygame.K_DOWN]:
+        if key[pygame.K_DOWN] or key[pygame.K_s]:
             if self.count < 3:
                 self.count += 1
             pygame.time.wait(125)
 
-        if key[pygame.K_UP]:
+        if key[pygame.K_UP] or key[pygame.K_w]:
             if self.count > 1:
                 self.count -= 1
             pygame.time.wait(125)
